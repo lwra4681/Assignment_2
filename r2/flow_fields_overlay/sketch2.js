@@ -28,9 +28,9 @@ function setup() {
   }
 
   // Initialize sketches with specific colors
-  sketch1 = new Sketch(table1, [0.0, 0.0, 0.0, 1.0]); // Black color
-  sketch2 = new Sketch(table2, [0.0, 1.0, 0.0]); // Green color
-  sketch3 = new Sketch(table3, [0.0, 0.0, 1.0]); // Blue color
+  sketch1 = new Sketch(table1, [0.0, 0.0, 0.0,0.2]); // Black color
+  sketch2 = new Sketch(table2, [1.0, 1.0, 1.0, 0.5]); // Green color
+  sketch3 = new Sketch(table3, [0.0, 0.0, 1.0,0.1]); // Blue color
 
   sketch1.loadPoints();
   sketch2.loadPoints();
@@ -153,23 +153,26 @@ class Sketch {
       let alpha = map(layer, 0, numLayers, 50, 150);
       stroke(0, 0, 0, alpha);
       strokeWeight(0 + layer * 0.3);
-
+  
+      // Set fill color based on this.color
+      fill(this.color[0] * 255, this.color[1] * 255, this.color[2] * 255, this.color[3] * 255 || 255);
+  
       beginShape();
       for (let i = 0; i < this.points.length; i++) {
         let p = this.points[i].position;
-
+  
         let offsetX = random(-layer * 2, layer * 2);
         let offsetY = random(-layer * 2, layer * 2);
-
+  
         if (i > 0 && this.points[i].id < this.points[i - 1].id) {
           endShape();
           beginShape();
         }
-
+  
         vertex(p.x + offsetX, p.y + offsetY, p.z);
       }
       endShape(CLOSE); // Close the shape
     }
   }
-}
+} 
 
