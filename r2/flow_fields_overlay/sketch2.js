@@ -1,6 +1,12 @@
+// this script includes some perlin noise flow field stuff, inspired from this:
+https://editor.p5js.org/ada10086/sketches/r1gmVaE07
+
+//it was done as a proof of concept to show tha it's possilbt to use perlin noise with the overlayed sketches and 3D webGL stuff
+
 let table1, table2, table3;
 let sketch1, sketch2, sketch3;
-var num = 200;
+
+let num = 200;
 var noiseScale = 500, noiseStrength = 1;
 
 var particles = [];
@@ -28,7 +34,7 @@ function setup() {
   }
 
   // Initialize sketches with specific colors
-  sketch1 = new Sketch(table1, [0.0, 0.0, 0.0,0.2]); // Black color
+  sketch1 = new Sketch(table1, [1, 1, 1,1]); // Black color
   sketch2 = new Sketch(table2, [1.0, 1.0, 1.0, 0.5]); // Green color
   sketch3 = new Sketch(table3, [0.0, 0.0, 1.0,0.1]); // Blue color
 
