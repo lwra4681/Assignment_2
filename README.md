@@ -1,3 +1,8 @@
+Here, this file shows the relevant file strucutre and any other info we should be adding here
+
+
+
+
 r3/
 │
 ├── index.html             # Main HTML file to load the sketch
